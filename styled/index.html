@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../main.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <title>모던웹프로그래밍I</title>
+  </head>
+  <body>
+    <header class="text-gray-600 body-font top-0 sticky bg-slate-100">
+      <div
+        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      >
+        <a
+          class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
+          <img src="assets/logo.svg" alt="" />
+          <span class="ml-3 text-xl">모던웹프로그래밍I</span>
+        </a>
+        <nav
+          class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center"
+        >
+          <p>자기소개 페이지 만들기</p>
+        </nav>
+        <label
+          class="inline-flex items-center bg-gray-100 border-0 py-2 px-3 focus:outline-none rounded text-base mt-4 md:mt-0"
+          onclick="toIndexPage()"
+        >
+          <span class="text-xl mr-4 pr-4 border-r border-gray-500">CSS</span>
+          <div class="flex items-center gap-2">
+            <span id="off" class="text-xl text-gray-300">OFF</span>
+            <input
+              type="checkbox"
+              value=""
+              class="sr-only peer"
+              checked
+              disabled
+            />
+            <div
+              class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+            ></div>
+            <span id="on" class="text-xl">ON</span>
+          </div>
+        </label>
+      </div>
+    </header>
+    <main>
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div
+            class="flex flex-wrap w-full mb-20 flex-col items-center text-center"
+          >
+            <img
+              src="assets/me.png"
+              width="200"
+              alt="내 이미지"
+              class="mb-4 border-2 rounded-full bg-gray-200"
+            />
+            <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">
+              안녕하세요. 저는 강민구입니다. <br />
+              웹 프로그래밍을 배우고 있습니다.
+            </p>
+          </div>
+
+          <h1
+            class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"
+          >
+            Skills
+          </h1>
+          <hr class="mb-8" />
+          <div class="flex flex-wrap -m-4 mb-12">
+            <div class="md:w-1/2 w-full p-4">
+              <div class="p-4">
+                <h2
+                  class="sm:text-2xl text-xl font-medium title-font mb-2 text-gray-900"
+                >
+                  Frontend
+                </h2>
+                <hr class="mb-8" />
+                <div class="flex flex-col lg:flex-row">
+                  <div class="md:w-1/2 w-full p-4">
+                    <h3
+                      class="sm:text-xl text-lg font-medium title-font mb-2 text-gray-900"
+                    >
+                      Web Technologies
+                    </h3>
+                    <span class="grid grid-cols-2 gap-2 w-fit">
+                      <i-con src="html.svg" tooltip="HTML"></i-con>
+                      <i-con src="css.svg" tooltip="CSS"></i-con>
+                      <i-con src="js.svg" tooltip="JavaScript"></i-con>
+                      <i-con src="ts.svg" tooltip="TypeScript"></i-con>
+                    </span>
+                  </div>
+                  <div class="md:w-1/2 w-full p-4">
+                    <h3
+                      class="sm:text-xl text-lg font-medium title-font mb-2 text-gray-900"
+                    >
+                      Library/Framework
+                    </h3>
+                    <span class="flex gap-2">
+                      <i-con src="react.svg" tooltip="React"></i-con>
+                      <i-con src="next.png" tooltip="Next.js"></i-con>
+                    </span>
+                  </div>
+                </div>
+                <div class="flex flex-col lg:flex-row">
+                  <div class="md:w-1/2 w-full p-4">
+                    <h3
+                      class="sm:text-xl text-lg font-medium title-font mb-2 text-gray-900"
+                    >
+                      State Management
+                    </h3>
+                    <span class="flex gap-2">
+                      <i-con src="recoil.svg" tooltip="Recoil"></i-con>
+                      <i-con src="zustand.png" tooltip="Zustand"></i-con>
+                    </span>
+                  </div>
+                  <div class="md:w-1/2 w-full p-4">
+                    <h3
+                      class="sm:text-xl text-lg font-medium title-font mb-2 text-gray-900"
+                    >
+                      Styling
+                    </h3>
+                    <span class="flex gap-2">
+                      <i-con src="sass.svg" tooltip="Sass"></i-con>
+                      <i-con src="tailwind.svg" tooltip="Tailwind CSS"></i-con>
+                      <i-con
+                        src="styled-components.png"
+                        tooltip="styled-components"
+                      ></i-con>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2 w-full p-4">
+              <div class="p-4">
+                <h2
+                  class="sm:text-2xl text-xl font-medium title-font mb-2 text-gray-900"
+                >
+                  Backend
+                </h2>
+                <hr class="mb-8" />
+                <div class="flex flex-col lg:flex-row">
+                  <div class="md:w-1/2 w-full p-4">
+                    <h3
+                      class="sm:text-xl text-lg font-medium title-font mb-2 text-gray-900"
+                    >
+                      Runtime
+                    </h3>
+                    <span class="flex gap-2">
+                      <i-con src="node.svg" tooltip="Node.js"></i-con>
+                      <i-con src="graphql.svg" tooltip="GraphQL"></i-con>
+                    </span>
+                  </div>
+                  <div class="md:w-1/2 w-full p-4">
+                    <h3
+                      class="sm:text-xl text-lg font-medium title-font mb-2 text-gray-900"
+                    >
+                      Library/Framework
+                    </h3>
+                    <span class="flex gap-2">
+                      <i-con src="express.svg" tooltip="Express.js"></i-con>
+                      <i-con
+                        src="apollo-graphql.png"
+                        tooltip="Apollo GraphQL"
+                      ></i-con>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2 w-full p-4">
+              <div class="p-4">
+                <h2
+                  class="sm:text-2xl text-xl font-medium title-font mb-2 text-gray-900"
+                >
+                  Etc
+                </h2>
+                <hr class="mb-8" />
+                <div class="flex flex-col lg:flex-row">
+                  <div class="md:w-1/2 w-full p-4">
+                    <h3
+                      class="sm:text-xl text-lg font-medium title-font mb-2 text-gray-900"
+                    >
+                      Version Control
+                    </h3>
+                    <span class="flex gap-2">
+                      <i-con src="github.png" tooltip="GitHub"></i-con>
+                    </span>
+                  </div>
+                  <div class="md:w-1/2 w-full p-4">
+                    <h3
+                      class="sm:text-xl text-lg font-medium title-font mb-2 text-gray-900"
+                    >
+                      Communication
+                    </h3>
+                    <span class="flex gap-2">
+                      <i-con src="notion.png" tooltip="Notion"></i-con>
+                      <i-con src="slack.png" tooltip="Slack"></i-con>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h1
+            class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"
+          >
+            Projects
+          </h1>
+          <hr class="mb-8" />
+          <div class="flex flex-wrap -m-4">
+            <div class="w-full p-4">
+              <div class="p-4">
+                <h2
+                  class="sm:text-2xl text-xl font-medium title-font mb-2 text-gray-900"
+                >
+                  <a
+                    href="https://npmjs.com/taegeukgi"
+                    class="text-blue-400 hover:text-blue-600"
+                    >Taegeukgi 🇰🇷
+                  </a>
+                </h2>
+                <hr class="mb-8" />
+                <div class="flex flex-col">
+                  <p class="flex items-center">
+                    Taegeukgi는 태극기를 웹 화면에 그리는 기능을 제공하는
+                    라이브러리입니다.
+                  </p>
+                  <p class="flex items-center">
+                    <i-con style="width: 1.5rem" src="html.svg"></i-con>
+                    <i-con style="width: 1.5rem" src="css.svg"></i-con>
+                    <i-con style="width: 1.5rem" src="js.svg"></i-con>로
+                    만들었습니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
