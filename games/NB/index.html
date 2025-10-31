@@ -1,0 +1,196 @@
+<!-- number baseball 게임 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자 야구 게임</title>
+    <link
+      href="https://unpkg.com/nes.css@latest/css/nes.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/baseball.css" />
+  </head>
+  <body>
+    <main class="container">
+      <!-- 🎮 메인 화면 -->
+      <section class="main-view nes-container" id="mainView">
+        <header>
+          <h1>숫자 야구 게임</h1>
+          <p>
+            컴퓨터와 숫자 야구 게임을 해보세요!<br />
+            난이도를 선택하고 도전하세요.
+          </p>
+        </header>
+
+        <!-- 📘 게임 규칙 -->
+        <section class="rules mb-12">
+          <button
+            type="button"
+            class="nes-btn is-primary"
+            id="showRulesBtn"
+            aria-haspopup="dialog"
+          >
+            게임 규칙 보기
+          </button>
+
+          <dialog class="nes-dialog" id="dialog-rules">
+            <form method="dialog">
+              <h2 class="title">게임 규칙</h2>
+              <p>
+                컴퓨터가 서로 다른 N자리 숫자를 생성하면, 플레이어는 그 숫자를
+                맞춰야 합니다.
+                <br />
+                플레이어가 제출한 수에 대해 컴퓨터는 스트라이크와 볼의 개수를
+                <b>xS yB</b> 형식으로 알려줍니다.
+              </p>
+
+              <ul class="nes-list is-disc">
+                <li><b>스트라이크(S)</b>: 숫자와 위치가 모두 맞은 경우</li>
+                <li><b>볼(B)</b>: 숫자는 맞지만 위치가 틀린 경우</li>
+              </ul>
+
+              <p>
+                아래 표는 정답이 1357일 때 몇 가지 제출 예시와 그에 대한 결과를
+                보여줍니다.
+              </p>
+              <div class="nes-table-responsive">
+                <table class="nes-table is-centered">
+                  <thead>
+                    <tr>
+                      <th>제출</th>
+                      <th>결과</th>
+                      <th>설명</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>7000</td>
+                      <td style="white-space: pre">0S 1B</td>
+                      <td>
+                        7이 비밀번호에 포함되어 있지만 위치가 틀렸으므로 1
+                        BALL입니다.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2244</td>
+                      <td>0S 0B</td>
+                      <td>
+                        일치하는 숫자가 없으므로 스트라이크와 볼이 없습니다.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3333</td>
+                      <td>1S 3B</td>
+                      <td>
+                        3이 비밀번호에 포함되어 있습니다. 위치가 정확한 3이 1개,
+                        위치가 틀린 3이 3개 있으므로 1 STRIKE, 3 BALL 입니다.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3457</td>
+                      <td>2S 1B</td>
+                      <td>
+                        3, 5, 7이 비밀번호에 포함되어 있습니다. 5, 7은 위치가
+                        정확합니다. 따라서 2 STRIKE, 1 BALL 입니다.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>7531</td>
+                      <td>0S 4B</td>
+                      <td>
+                        7, 5, 3, 1이 비밀번호에 포함되어 있지만 네 숫자 모두
+                        위치가 틀렸으므로 4 BALL 입니다.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1357</td>
+                      <td>4S 0B</td>
+                      <td>
+                        1, 3, 5, 7이 비밀번호에 포함되어 있고, 네 숫자 모두
+                        위치가 정확하므로 4 STRIKE 입니다.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <hr />
+
+              <h2 class="title">게임 난이도</h2>
+              <p>
+                게임 난이도에 따라 컴퓨터가 생성하는 숫자의 자릿수가 달라집니다.
+              </p>
+
+              <ul class="nes-list is-disc">
+                <li><b>EASY</b>: 3자리 숫자</li>
+                <li><b>NORMAL</b>: 4자리 숫자</li>
+                <li><b>HARD</b>: 5자리 숫자</li>
+              </ul>
+
+              <menu class="dialog-menu flex flex-end">
+                <button class="nes-btn is-primary w-fit">확인</button>
+              </menu>
+            </form>
+          </dialog>
+        </section>
+
+        <!-- ⚙️ 난이도 선택 -->
+        <section class="difficulty">
+          <h3>게임 난이도</h3>
+          <div class="btn-group flex gap-2 mb-4 justify-between w-full">
+            <button type="button" class="nes-btn w-[30%]" data-level="EASY">
+              EASY
+            </button>
+            <button type="button" class="nes-btn w-[30%]" data-level="NORMAL">
+              NORMAL
+            </button>
+            <button type="button" class="nes-btn w-[30%]" data-level="HARD">
+              HARD
+            </button>
+          </div>
+        </section>
+      </section>
+
+      <!-- 🕹️ 게임 화면 -->
+      <section class="game-view nes-container none" id="gameView">
+        <header>
+          <h1 class="display-level" style="word-break: keep-all">
+            난이도: EASY (3자리)
+          </h1>
+        </header>
+
+        <section class="mb-8">
+          <h2>결과</h2>
+          <div id="result" class="nes-container with-title">
+            <p class="title">기록</p>
+          </div>
+        </section>
+
+        <form id="gameForm" class="nes-field mb-4">
+          <label for="guessInput">
+            <h2>입력</h2>
+          </label>
+          <input
+            type="number"
+            id="guessInput"
+            class="nes-input mb-4 w-full"
+            maxlength="3"
+            autocomplete="off"
+            required
+          />
+          <div class="flex gap-2 w-full justify-between">
+            <button type="submit" class="nes-btn is-primary w-[75%]">
+              제출
+            </button>
+            <button type="button" class="nes-btn w-[20%]" id="restartBtn">
+              다시하기
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
