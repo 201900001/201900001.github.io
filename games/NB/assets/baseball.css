@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'DungGeunMo';
+  src: url('fonts/DungGeunMo.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-size: 12pt;
+}
+
+body {
+  font-family: 'DungGeunMo', sans-serif;
+  background-color: #f0f0f0;
+  padding: 3rem;
+}
+
+p {
+  word-break: keep-all;
+}
+
+.nes-input {
+  background: transparent;
+  border-image-repeat: repeat;
+  font-size: 1.5rem;
+  padding: 0.25rem 0.5rem;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+table.nes-table-responsive {
+  border-image-repeat: repeat;
+}
+
+.nes-btn {
+  border-image-repeat: repeat;
+  width: 100%;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+#result {
+  border: 2px solid #000;
+  /* background-color: #fff; */
+  padding: 1rem;
+  margin-bottom: 1rem;
+  height: 130px;
+  overflow-y: scroll;
+}
+
+#result p {
+  font-size: 1.5rem;
+}
+
+.w-fit {
+  width: fit-content;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+table * {
+  word-break: keep-all;
+}
+
+.success {
+  color: #009874;
+  font-weight: bold;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.w-\[20\%\] {
+  width: 20%;
+}
+
+.w-\[30\%\] {
+  width: 30%;
+}
+
+.w-\[40\%\] {
+  width: 40%;
+}
+
+.w-\[60\%\] {
+  width: 60%;
+}
+
+.w-\[75\%\] {
+  width: 75%;
+}
+
+.w-\[80\%\] {
+  width: 80%;
+}
+
+.guess {
+  font-size: 1.5rem;
+}
+
+.none {
+  display: none;
+}
+
+.nes-list.is-disc li::before {
+  position: absolute;
+  top: 8px;
+  left: -22px;
+  content: '';
+  width: 2px;
+  height: 2px;
+  color: #212529;
+  box-shadow: 4px 1px, 5px 1px, 3px 2px, 4px 2px, 5px 2px, 6px 2px, 2px 3px,
+    3px 3px, 4px 3px, 5px 3px, 6px 3px, 7px 3px, 2px 4px, 3px 4px, 4px 4px,
+    5px 4px, 6px 4px, 7px 4px, 3px 5px, 4px 5px, 5px 5px, 6px 5px, 4px 6px,
+    5px 6px;
+}
+
+hr {
+  border: none;
+  border-top: 3px dashed #ccc;
+  margin: 3rem 0;
+}
