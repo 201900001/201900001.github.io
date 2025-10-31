@@ -86,7 +86,6 @@ class GameController {
 
   disableInput() {
     guessInput.disabled = true; // ✅ 입력 자체 금지
-    guessInput.setAttribute('readonly', true);
     guessInput.blur(); // ✅ 포커스 제거
     document.querySelector('#gameForm button[type="submit"]').disabled = true;
   }
