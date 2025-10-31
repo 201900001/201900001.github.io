@@ -79,9 +79,6 @@ class GameController {
     if (feedback.includes('정답입니다!')) {
       this.isFinished = true;
       this.disableInput();
-      const btn = document.getElementById('submitBtn');
-      btn.classList.add('is-disabled'); // ✅ 버튼 비활성화
-      btn.classList.remove('is-primary');
     }
 
     guessInput.value = '';
