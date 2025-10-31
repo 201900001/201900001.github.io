@@ -162,20 +162,25 @@ hr {
   cursor: inherit;
 }
 
-.nes-btn.is-disabled {
-  pointer-events: none;
-  cursor: default;
-  color: #fff;
-  background-color: #209cee;
-  box-shadow: none;
+.nes-btn[disabled] {
+  opacity: 0.5;
+  cursor: inherit;
+}
 
-  &::after {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    bottom: -4px;
-    left: -4px;
-    content: '';
-    box-shadow: rgb(0, 107, 179) -4px -4px inset;
-  }
+/* ✅ disabled 상태에서 NES 버튼 눌림/호버 스타일 제거 */
+.nes-btn:disabled,
+.nes-btn[disabled],
+.nes-btn.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+  pointer-events: none !important; /* ✅ hover/active 자체 차단 */
+
+  /* ✅ NES의 눌림 효과 제거 */
+  background-color: #209cee !important; /* 기본색 유지 */
+}
+
+.nes-btn:disabled::after,
+.nes-btn[disabled]::after,
+.nes-btn.is-disabled::after {
+  box-shadow: inset -4px -4px #006bb3 !important; /* hover/active 변화를 막기 위해 기본값 고정 */
 }
