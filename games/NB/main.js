@@ -19,6 +19,7 @@ class GameController {
     this.computerNumber = '';
     this.length = 0;
     this.level = '';
+    this.isFinished = false;
   }
 
   // 난이도 설정 및 초기화
@@ -26,20 +27,19 @@ class GameController {
     this.level = level;
     this.length = LEVEL[level];
     this.computerNumber = this.generateComputerNumber();
+    this.isFinished = false; // ✅ 새 게임 시작
 
-    // UI 업데이트
     displayLevel.textContent = `난이도: ${level} (${this.length}자리)`;
+
     guessInput.setAttribute('maxlength', this.length);
     guessInput.value = '';
     resultDiv.innerHTML = '';
     resultDiv.scrollTop = 0;
 
-    // 뷰 전환
+    this.enableInput(); // ✅ 다시 입력 가능
+
     mainView.classList.add('none');
     gameView.classList.remove('none');
-
-    // 디버그용
-    console.log(`컴퓨터 숫자: ${this.computerNumber}`);
   }
 
   // 컴퓨터 숫자 생성
@@ -74,8 +74,29 @@ class GameController {
 
     const feedback = this.getFeedback(guess);
     resultDiv.innerHTML += `<p class="guess">${guess} - ${feedback}</p>`;
-    guessInput.value = '';
     resultDiv.scrollTop = resultDiv.scrollHeight;
+
+    if (feedback.includes('정답입니다!')) {
+      this.isFinished = true;
+      this.disableInput();
+      const btn = document.getElementById('submitBtn');
+      btn.classList.add('is-disabled'); // ✅ 버튼 비활성화
+      btn.classList.remove('is-primary');
+    }
+
+    guessInput.value = '';
+  }
+
+  disableInput() {
+    guessInput.disabled = true; // ✅ 입력 자체 금지
+    guessInput.setAttribute('readonly', true);
+    guessInput.blur(); // ✅ 포커스 제거
+    document.querySelector('#gameForm button[type="submit"]').disabled = true;
+  }
+
+  enableInput() {
+    guessInput.disabled = false;
+    form.querySelector('button[type="submit"]').disabled = false;
   }
 }
 
@@ -85,9 +106,8 @@ const game = new GameController();
 // 폼 제출 이벤트
 form.addEventListener('submit', e => {
   e.preventDefault();
-  const guess = guessInput.value.trim();
-  if (!guess) return;
-  game.handleGuess(guess);
+  if (game.isFinished) return; // ✅ 추가 방지
+  game.handleGuess(guessInput.value.trim());
 });
 
 // 규칙 다이얼로그
